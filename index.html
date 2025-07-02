@@ -65,7 +65,7 @@
                     <li><a href="#testimonials" class="nav-link">Depoimentos</a></li>
                     <li><a href="#contact" class="nav-link">Contato</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" id="menuSidebar">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="about-text" data-aos="fade-left">
                         <h3>Minha Jornada</h3>
-                        <p>Olá! Sou Kauã, um desenvolvedor apaixonado por criar soluções digitais que combinam design atraente com funcionalidade intuitiva. Minha jornada no desenvolvimento web começou quando percebi o poder da tecnologia para transformar ideias em realidade.</p>
+                        <p>Olá! Sou Dérick, um desenvolvedor apaixonado por criar soluções digitais que combinam design atraente com funcionalidade intuitiva. Minha jornada no desenvolvimento web começou quando percebi o poder da tecnologia para transformar ideias em realidade.</p>
                         
                         <p>Meu diferencial está na capacidade de entender tanto o lado técnico quanto as necessidades do cliente, criando soluções completas que realmente resolvem problemas. Estou constantemente aprendendo novas tecnologias e aprimorando minhas habilidades para oferecer o melhor em cada projeto.</p>
                         
@@ -128,7 +128,7 @@
                             </div>
                         </div>
                         
-                        <a href="#contact" class="btn btn-primary">Solicitar CV Completo</a>
+                        <a onclick="baixarCurriculo()" class="btn btn-primary">Baixar CV Completo</a>
                     </div>
                 </div>
             </div>
@@ -164,12 +164,13 @@
                     </div>
                     
                     <div class="skill-item" data-aos="zoom-in" data-aos-delay="600">
-                        <i class="fab fa-python"></i>
+                        <img class="tech" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" style="width: 40px; filter: brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(2765%) hue-rotate(194deg) brightness(99%) contrast(101%);">
                         <span>MongoDB</span>
                     </div>
+
                     
                     <div class="skill-item" data-aos="zoom-in" data-aos-delay="700">
-                        <i class="fab fa-java"></i>
+                        <img class="tech" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" style="width: 40px; filter: brightness(0) saturate(100%) invert(21%) sepia(96%) saturate(2765%) hue-rotate(194deg) brightness(99%) contrast(101%);">
                         <span>PostgreSQL</span>
                     </div>
                     
@@ -491,7 +492,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p><a href="mailto:derickcampossantos1@gmail.com"><span class="__cf_email__" data-cfemail="bcd7ddd0cad9cfd3c9c6dd928e8c8c88fcdbd1ddd5d092dfd3d1">derickcampossantos1@gmail.com></a></p>
+                                <p id="emailLink"><a href="mailto:derickcampossantos1@gmail.com"><span class="__cf_email__" data-cfemail="bcd7ddd0cad9cfd3c9c6dd928e8c8c88fcdbd1ddd5d092dfd3d1">derickcampossantos1@gmail.com></a></p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -641,7 +642,7 @@
         const backToTopButton = document.querySelector('.back-to-top');
         
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
+            if (window.pageYOffset >200) {
                 backToTopButton.classList.add('active');
             } else {
                 backToTopButton.classList.remove('active');

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Menu hamburger functionality
-    const hamburger = document.querySelector(".hamburger")
+    const hamburger = document.getElementById('menuSidebar')
     const navMenu = document.querySelector(".nav-menu")
   
     if (hamburger && navMenu) {
@@ -251,4 +251,9 @@ document.addEventListener("DOMContentLoaded", () => {
     testimonialSlider()
   })
   
-  
+function baixarCurriculo() {
+  const link = document.createElement('a');
+  link.href = 'Currículo - Dérick Campos Santos.pdf'; 
+  link.download = 'curriculo.pdf';  
+  link.click();  
+}
