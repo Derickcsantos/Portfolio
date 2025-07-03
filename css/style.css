@@ -3,6 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
   }
   
   :root {
@@ -1335,7 +1337,7 @@
     }
 
     .contact-item p{
-      font-size: 8px;
+      font-size:12px;
     }
   
     .footer-links h4::after,

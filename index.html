@@ -492,7 +492,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p id="emailLink"><a href="mailto:derickcampossantos1@gmail.com"><span class="__cf_email__" data-cfemail="bcd7ddd0cad9cfd3c9c6dd928e8c8c88fcdbd1ddd5d092dfd3d1">derickcampossantos1@gmail.com></a></p>
+                                <p id="emailLink"><a href="mailto:derickcampossantos1@gmail.com"><span class="__cf_email__" data-cfemail="bcd7ddd0cad9cfd3c9c6dd928e8c8c88fcdbd1ddd5d092dfd3d1">derickcampossantos1@gmail.com</a></p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -611,82 +611,91 @@
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
     <script>
-        // Inicializar AOS (Animate On Scroll)
-        AOS.init({
+        document.addEventListener("DOMContentLoaded", () => {
+            // AOS (Animate on Scroll)
+            AOS.init({
             duration: 800,
             easing: 'ease',
             once: true
-        });
-        
-        // Menu mobile
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-menu");
-        
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        });
-        
-        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-        }));
-        
-        // Scroll header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
-        
-        // Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset >200) {
-                backToTopButton.classList.add('active');
-            } else {
-                backToTopButton.classList.remove('active');
+            });
+
+            // Menu Mobile
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector(".nav-menu");
+            const navLinks = document.querySelectorAll(".nav-link");
+
+            if (hamburger && navMenu) {
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            });
+
+            navLinks.forEach(link =>
+                link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+                })
+            );
             }
-        });
-        
-        // Testimonial slider
-        const testimonialCards = document.querySelectorAll('.testimonial-card');
-        const dots = document.querySelectorAll('.dot');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        let currentIndex = 0;
-        
-        function showTestimonial(index) {
+
+            // Scroll header
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+            if (header) header.classList.toggle('scrolled', window.scrollY > 50);
+            });
+
+            // Back to top button
+            const backToTopButton = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', () => {
+            if (backToTopButton) {
+                backToTopButton.classList.toggle('active', window.pageYOffset > 200);
+            }
+            });
+
+            // Testimonial slider
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentIndex = 0;
+
+            function showTestimonial(index) {
             testimonialCards.forEach(card => card.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
-            
+
             testimonialCards[index].classList.add('active');
             dots[index].classList.add('active');
             currentIndex = index;
-        }
-        
-        dots.forEach((dot, index) => {
+            }
+
+            dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 showTestimonial(index);
             });
+            });
+
+            if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex === 0) ? testimonialCards.length - 1 : currentIndex - 1;
+                showTestimonial(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex === testimonialCards.length - 1) ? 0 : currentIndex + 1;
+                showTestimonial(currentIndex);
+            });
+            }
+
+            // Auto slide testimonials
+            if (testimonialCards.length > 0) {
+            setInterval(() => {
+                currentIndex = (currentIndex === testimonialCards.length - 1) ? 0 : currentIndex + 1;
+                showTestimonial(currentIndex);
+            }, 5000);
+            }
         });
-        
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === 0) ? testimonialCards.length - 1 : currentIndex - 1;
-            showTestimonial(currentIndex);
-        });
-        
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === testimonialCards.length - 1) ? 0 : currentIndex + 1;
-            showTestimonial(currentIndex);
-        });
-        
-        // Auto slide testimonials
-        setInterval(() => {
-            currentIndex = (currentIndex === testimonialCards.length - 1) ? 0 : currentIndex + 1;
-            showTestimonial(currentIndex);
-        }, 5000);
     </script>
+
     <script src="./js/script.js"></script>
 </body>
 </html>
