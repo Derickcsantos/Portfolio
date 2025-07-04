@@ -26,9 +26,10 @@ Este portfólio foi desenvolvido com o objetivo de apresentar meus principais pr
 
 | **Frontend**      | **Estilização** | **Outras Ferramentas**      |
 |:------------------|:----------------|:----------------------------|
-| HTML5             | TailwindCSS     | Git & GitHub                |
+| HTML5             | Bootstrap       | Git & GitHub                |
 | CSS3              | Figma (UI/UX)   | Vercel (Deploy)             |
 | JavaScript (ES6+) |                 | Animate On Scroll (AOS.js)  |
+|                   |                 | Vlibras                     |
 
 ---
 
