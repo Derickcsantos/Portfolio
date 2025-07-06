@@ -58,6 +58,11 @@
     margin: 0 auto;
     padding: 0 20px;
   }
+
+#colorWhite,
+#corBranca{
+  color: var(--white);
+}
   
   h1,
   h2,
@@ -142,13 +147,13 @@
     width: 100%;
     z-index: 1000;
     transition: all 0.4s ease;
-    height: 80px;
+    height: 90px;
   }
   
   header.scrolled {
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    height: 80px;
+    height: 90px;
   }
   
   #navbar .container {
@@ -174,7 +179,7 @@
   .nav-menu {
     display: flex;
     list-style: none;
-    gap: 10px;
+    gap: 10px; 
   }
   
   .nav-link {
